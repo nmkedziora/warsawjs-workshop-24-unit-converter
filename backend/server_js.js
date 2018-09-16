@@ -31,29 +31,29 @@ doc.host = `${host}:${port}`;
 app.use('/doc', swagger.serve, swagger.setup(doc));
 
 app.get('/api/temperature', (req, res) => {
-	const { fromValue, fromUnit, toUnit } = req.query;
-	const result = temperature(+fromValue, fromUnit, toUnit);
-	const response = {
-		type: 'temperature', fromValue, fromUnit, toUnit, result,
-	};
-	logger.info(JSON.stringify(response));
-	res.json(response);
+  const { fromValue, fromUnit, toUnit } = req.query;
+  const result = temperature(+fromValue, fromUnit, toUnit);
+  const response = {
+    type: 'temperature', fromValue, fromUnit, toUnit, result,
+  };
+  logger.info(JSON.stringify(response));
+  res.json(response);
 });
 
 app.get('/api/currency', async (req, res) => {
-	const { fromValue, fromUnit, toUnit } = req.query;
-	const result = await currency(+fromValue, fromUnit, toUnit);
-	const response = {
-		type: 'currency', fromValue, fromUnit, toUnit, result,
-	};
-	logger.info(JSON.stringify(response));
-	res.json(response);
+  const { fromValue, fromUnit, toUnit } = req.query;
+  const result = await currency(+fromValue, fromUnit, toUnit);
+  const response = {
+    type: 'currency', fromValue, fromUnit, toUnit, result,
+  };
+  logger.info(JSON.stringify(response));
+  res.json(response);
 });
 
 const server = new Promise(resolve => app.listen(port, () => {
-	logger.info(`Frontend: ${url}`);
-	logger.info(`API Docs: ${url}doc`);
-	resolve();
+  logger.info(`Frontend: ${url}`);
+  logger.info(`API Docs: ${url}doc`);
+  resolve();
 }));
 
 module.exports = { server, url };
