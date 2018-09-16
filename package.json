@@ -19,7 +19,7 @@
     "testcafe:gui": "testcafe chrome tests/testcafe/test.js --app \"npm start\" && echo TESTCAFE:GUI OK || (echo TESTCAFE:GUI ERROR; false)",
     "test:gui": "npm run lint && npm run tape && npm run tap && npm run mocha && npm run testcafe && echo NPM TEST OK || (echo NPM TEST ERROR; false)",
     "test:nolint": "npm run tape && npm run tap && npm run mocha && npm run testcafe && echo NPM TEST OK || (echo NPM TEST ERROR; false)",
-    "test": "npm run lint && npm run tape && npm run tap && npm run mocha && npm run testcafe && echo NPM TEST OK || (echo NPM TEST ERROR; false)"
+    "test": "npm run lint && npm run tape && npm run tap && npm run mocha && echo NPM TEST OK || (echo NPM TEST ERROR; false)"
   },
   "jest": {
     "testRegex": "\\.test\\.js$",
